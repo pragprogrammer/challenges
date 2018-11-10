@@ -1,12 +1,14 @@
 // Create a function that takes a string as its argument and returns the string in reversed order.
 
-let testStr = "Hello"
-let out = ""
+console.log("Hello")
+
 function reverse(str) {
-  for (let i = str.lenght; i > 0; i--) {
+  let out = ""
+  for (let i = str.length - 1; i >= 0; i--) {
     let letter = str[i]
     out += letter
+    console.log(letter)
   }
   return out
 }
-console.log(out)
+console.log(reverse("Hello"))
