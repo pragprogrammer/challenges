@@ -30,10 +30,10 @@ console.clear()
 
 // // Create a function that takes a string and returns the word count. The string will be a sentence.
 
-// function wordCount(str) {
-//   // let out = str.split(' ')
-//   // console.log(out)
-//   // return out.length
-//   return str.split(' ').length
-// }
-// console.log(wordCount("Is this easy mode"))
+function wordCount(str) {
+  // let out = str.split(' ')
+  // console.log(out)
+  // return out.length
+  return str.split(' ').length
+}
+console.log(wordCount("Is this easy mode"))
