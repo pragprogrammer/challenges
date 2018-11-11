@@ -80,3 +80,21 @@ function dasher(num) {
 }
 console.log(dasher(10))
 console.clear()
+
+// Create a function that reverses a boolean value and returns the string "boolean expected" if another variable type is given.
+
+function boolFlipper(bool) {
+  let reverse = true
+  if (bool !== true && bool !== false) {
+    return "boolean expected"
+  }
+  if (bool == true) {
+    reverse = false
+    return reverse
+  }
+  if (bool == false) {
+    reverse = true
+    return reverse
+  }
+}
+console.log(boolFlipper(false))
