@@ -79,3 +79,4 @@ function dasher(num) {
   return out
 }
 console.log(dasher(10))
+console.clear()
