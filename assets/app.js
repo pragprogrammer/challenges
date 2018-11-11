@@ -38,3 +38,32 @@ function wordCount(str) {
 }
 console.log(wordCount("Is this easy mode"))
 console.clear()
+
+// Create a function that takes a number (from 1 to 12) and return its corresponding month name as a string.
+
+function monthName(num) {
+  let months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December']
+
+  for (let i = 0; i < months.length; i++) {
+    // let month = months[i]
+    if (num > 0 && num < 13) {
+      return months[num - 1]
+    } else return 'Sorry not an Option'
+    // if (num == i || num == i + 1) {
+    //   return month
+    // }
+  }
+}
+console.log(monthName(1))
