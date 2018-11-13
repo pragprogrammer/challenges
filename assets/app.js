@@ -98,3 +98,11 @@ function boolFlipper(bool) {
   }
 }
 console.log(boolFlipper(false))
+console.clear()
+
+// Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
+
+function minMax(arr) {
+
+}
+console.log(minMax([2, 3, 1, 5, 7, -1]))
