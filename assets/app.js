@@ -103,6 +103,13 @@ console.clear()
 // Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
 
 function minMax(arr) {
-
+  let out = [arr[0]]
+  for (let i = 1; i < arr.length; i++) {
+    let number = arr[i]
+    // if (out[0] > number) {
+    //   out.unshift(number)
+    // }
+    console.log(out)
+  }
 }
 console.log(minMax([2, 3, 1, 5, 7, -1]))
