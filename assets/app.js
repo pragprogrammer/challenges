@@ -119,3 +119,17 @@ function minMax(arr) {
 }
 console.log(minMax([2, 3, 1, 5, 7, -1]))
 console.clear()
+
+// Create a function that takes an array of numbers. Return the largest number in the array.
+
+function largestNum(arr) {
+  let out = arr[0]
+  for (let i = 1; i < arr.length; i++) {
+    let value = arr[i]
+    if (value > out) {
+      out = value
+    }
+  }
+  return out;
+}
+console.log(largestNum([1, 100, 23, 10, 54, -12]))
