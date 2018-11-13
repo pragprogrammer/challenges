@@ -138,10 +138,6 @@ console.clear()
 // Create a function that accepts a string (of a persons first and last name) and returns a string with the first and last name swapped.
 
 function shuffle(str) {
-  let newStr = str.split(' ').shift()
-  console.log(newStr)
-  let out = newStr.push(str[0])
-  console.log(out)
-  return out.join()
+  return str.split(' ').reverse().join(' ')
 }
 console.log(shuffle("donald trump"))
