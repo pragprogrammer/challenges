@@ -141,3 +141,4 @@ function shuffle(str) {
   return str.split(' ').reverse().join(' ')
 }
 console.log(shuffle("donald trump"))
+console.clear()
