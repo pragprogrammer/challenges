@@ -147,5 +147,13 @@ console.clear()
 
 function fourLetters(arr) {
   let out = []
+  for (let i = 0; i < arr.length; i++) {
+    let word = arr[i]
+    if (word.length == 4) {
+      out.push(word)
+    }
+  }
+  return out
 }
 console.log(fourLetters(["Ryan", "Kieran", "Jason", "Matt"]))
+console.clear()
