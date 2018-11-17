@@ -169,3 +169,4 @@ function multiplyByLength(arr) {
   return out
 }
 console.log(multiplyByLength([2, 3, 1, 0]))
+console.clear()
