@@ -157,3 +157,15 @@ function fourLetters(arr) {
 }
 console.log(fourLetters(["Ryan", "Kieran", "Jason", "Matt"]))
 console.clear()
+
+// Create a function to multiply all values in an array by the amount of values in that array.
+
+function multiplyByLength(arr) {
+  let out = []
+  for (let i = 0; i < arr.length; i++) {
+    let number = arr[i]
+    out.push(number * arr.length)
+  }
+  return out
+}
+console.log(multiplyByLength([2, 3, 1, 0]))
