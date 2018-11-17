@@ -142,3 +142,10 @@ function shuffle(str) {
 }
 console.log(shuffle("donald trump"))
 console.clear()
+
+// Create a function that takes an array of strings. Return all words in the array that are exactly four letters.
+
+function fourLetters(arr) {
+  let out = []
+}
+console.log(fourLetters(["Ryan", "Kieran", "Jason", "Matt"]))
