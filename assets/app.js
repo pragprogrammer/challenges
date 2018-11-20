@@ -170,3 +170,26 @@ function multiplyByLength(arr) {
 }
 console.log(multiplyByLength([2, 3, 1, 0]))
 console.clear()
+
+// Create a function that takes an array and return the most frequently occuring element contained within it.
+
+function mostFrequent(arr) {
+  let out = arr[0]
+  let count = 1
+  let tempValue = 0
+  for (let i = 0; i < arr.length; i++) {
+    tempValue = arr[i]
+    let tempCount = 0
+    for (let j = 0; j < arr.length; j++) {
+      if (tempValue === arr[j]) {
+        tempCount++
+      }
+      if (tempCount > count) {
+        out = tempValue
+        count = tempCount
+      }
+    }
+  }
+  return out
+}
+console.log(mostFrequent([1, 2, -3, true, false, undefined, "yes", "yeah", "yup", 2]))
