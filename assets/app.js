@@ -181,7 +181,8 @@ function mostFrequent(arr) {
     tempValue = arr[i]
     let tempCount = 0
     for (let j = 0; j < arr.length; j++) {
-      if (tempValue === arr[j]) {
+      let value = arr[j]
+      if (tempValue === value) {
         tempCount++
       }
       if (tempCount > count) {
@@ -192,5 +193,5 @@ function mostFrequent(arr) {
   }
   return out
 }
-console.log(mostFrequent([1, 2, -3, true, false, undefined, "yes", "yeah", "yup", 2]))
-console.clear()
+console.log(mostFrequent([1, 2, -3, true, false, 1, undefined, "yes", "yeah", "yup", 2]))
+// console.clear()
