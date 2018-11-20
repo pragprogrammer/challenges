@@ -194,4 +194,23 @@ function mostFrequent(arr) {
   return out
 }
 console.log(mostFrequent([1, 2, -3, true, false, 1, undefined, "yes", "yeah", "yup", 2]))
-// console.clear()
+console.clear()
+
+// Create a function that takes two strings and returns true if the first argument ends with the second argument; otherewise return false .
+
+function endsWith(str1, str2) {
+  let out = false
+  debugger
+  for (let i = str1.length - 1; i > 0; i--) {
+    let letter = str1[i]
+    for (let j = str2.length - 1; j > 0; j--) {
+      let current = str2[j]
+      if (letter == current) {
+        out = true
+      }
+    }
+  }
+  return out;
+}
+console.log(endsWith('hello', 'ko'))
+
