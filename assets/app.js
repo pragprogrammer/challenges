@@ -213,6 +213,7 @@ function endsWith(str1, str2) {
       }
       if (letter != current) {
         out = false
+        return out
       }
       if (strLenght == 0) {
         return out
@@ -221,5 +222,5 @@ function endsWith(str1, str2) {
   }
   return out;
 }
-console.log(endsWith('hello', 'llo'))
+console.log(endsWith("convention", "tio"))
 
