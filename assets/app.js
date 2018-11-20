@@ -221,5 +221,5 @@ function endsWith(str1, str2) {
   }
   return out;
 }
-console.log(endsWith('hello', 'ko'))
+console.log(endsWith('hello', 'llo'))
 
