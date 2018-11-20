@@ -193,3 +193,4 @@ function mostFrequent(arr) {
   return out
 }
 console.log(mostFrequent([1, 2, -3, true, false, undefined, "yes", "yeah", "yup", 2]))
+console.clear()
