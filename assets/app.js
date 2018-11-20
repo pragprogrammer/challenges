@@ -200,13 +200,22 @@ console.clear()
 
 function endsWith(str1, str2) {
   let out = false
-  debugger
+  let strLenght = str2.length - 1
+  // debugger
   for (let i = str1.length - 1; i > 0; i--) {
     let letter = str1[i]
-    for (let j = str2.length - 1; j > 0; j--) {
+    for (let j = strLenght; j >= 0; j--) {
       let current = str2[j]
       if (letter == current) {
         out = true
+        strLenght--
+        break;
+      }
+      if (letter != current) {
+        out = false
+      }
+      if (strLenght == 0) {
+        return out
       }
     }
   }
