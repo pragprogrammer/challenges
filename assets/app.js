@@ -223,4 +223,18 @@ function endsWith(str1, str2) {
   return out;
 }
 console.log(endsWith("convention", "tio"))
+console.clear()
 
+// Create a function that takes two strings as arguments and returns the number of times the first string is found in the second string.
+
+function countInstance(str1, str2) {
+  let out = 0
+  for (let i = 0; i < str2.length; i++) {
+    let char = str2[i]
+    if (str1 === char) {
+      out++
+    }
+  }
+  return out
+}
+console.log(countInstance("a", "edabaait"))
