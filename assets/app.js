@@ -268,3 +268,4 @@ function onlyEven(arr) {
   return out
 }
 console.log(onlyEven([43, 65, 23, 89, 53, 9, 6]))
+console.clear()
