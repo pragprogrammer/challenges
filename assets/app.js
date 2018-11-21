@@ -254,3 +254,17 @@ function smallestNum(arr) {
 }
 console.log(smallestNum([0.4356, 0.8795, 0.5435, -0.9999]))
 console.clear()
+
+// Create a function that takes an array of numbers and returns only the even values.
+
+function onlyEven(arr) {
+  let out = []
+  for (let i = 0; i < arr.length; i++) {
+    let value = arr[i]
+    if (value % 2 == 0) {
+      out.push(value)
+    }
+  }
+  return out
+}
+console.log(onlyEven([43, 65, 23, 89, 53, 9, 6]))
