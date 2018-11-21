@@ -238,3 +238,19 @@ function countInstance(str1, str2) {
   return out
 }
 console.log(countInstance("a", "edabaait"))
+console.clear()
+
+// Create a function that takes an array of numbers and returns the smallest number in the set.
+
+function smallestNum(arr) {
+  let out = arr[0]
+  for (let i = 1; i < arr.length; i++) {
+    let value = arr[i]
+    if (value < out) {
+      out = value
+    }
+  }
+  return out;
+}
+console.log(smallestNum([0.4356, 0.8795, 0.5435, -0.9999]))
+console.clear()
