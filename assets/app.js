@@ -269,3 +269,17 @@ function onlyEven(arr) {
 }
 console.log(onlyEven([43, 65, 23, 89, 53, 9, 6]))
 console.clear()
+
+// Create a function that takes an array of names and returns an array with the first letter capitalized.
+
+function capitalize(arr) {
+  let out = []
+  for (let i = 0; i < arr.length; i++) {
+    let name = arr[i]
+    console.log('names', name)
+    let letters = name.split('')
+    // letters.toLowerCase()
+    console.log(letters)
+  }
+}
+console.log(capitalize(["samuel", "MABELLE", "letitia", "meridith"]))
