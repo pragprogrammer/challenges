@@ -279,11 +279,12 @@ function capitalize(arr) {
     let name = arr[i]
     lowerCased.push(name.toLowerCase())
     console.log('names', lowerCased)
-    for (let j = 0; j++ < name.length; j++) {
-      let letter = name[j]
-      console.log(letter)
-      letter[0].toUpperCase()
-    }
   }
+  for (let j = 0; j < lowerCased.length; j++) {
+    // debugger
+    let word = lowerCased[j]
+    out.push(word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+  }
+  console.log(out)
 }
 console.log(capitalize(["samuel", "MABELLE", "letitia", "meridith"]))
