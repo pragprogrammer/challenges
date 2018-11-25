@@ -289,7 +289,13 @@ function mineSweeper(arr) {
   let out = []
   for (let i = 0; i < arr.length; i++) {
     let value = arr[i]
-    console.log(value)
+    // console.log(value)
+    if (value.length > 0) {
+      for (let j = 0; j < value.length; j++) {
+        let root = value[j]
+        console.log(j)
+      }
+    }
   }
 
 }
