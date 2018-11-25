@@ -293,11 +293,21 @@ function mineSweeper(arr) {
     if (value.length > 0) {
       for (let j = 0; j < value.length; j++) {
         let root = value[j]
-        console.log(j)
+        // console.log(j)
+        // debugger
+        if (root == 1) {
+          root = 9
+          out.push(root)
+          continue
+        }
+        if (root != 1) {
+          out.push(root)
+          continue
+        }
       }
     }
   }
-
+  return out
 }
 console.log(mineSweeper([
   [0, 1, 0, 0],
