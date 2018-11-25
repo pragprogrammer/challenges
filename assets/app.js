@@ -287,10 +287,7 @@ console.clear()
 
 function mineSweeper(arr) {
   let out = []
-  let startIndex = {
-    row: 0,
-    col: 0
-  }
+  // console.log(arr[1][3])
   for (let i = 0; i < arr.length; i++) {
     let value = arr[i]
     // console.log(value)
@@ -298,17 +295,25 @@ function mineSweeper(arr) {
       for (let j = 0; j < value.length; j++) {
         let root = value[j]
         let counter = 0
-        let answer = mineSolver(root, startIndex)
         // console.log('root', root)
-        // console.log('index', j)
-        // debugger
+        console.log('index', j)
+        debugger
+        if (root == 1) {
+          root = 9
+          out.push(root)
+          continue
+        }
+        console.log(arr[i + 1][j])
+        if (arr[i + 1][j] == 9) {
+          counter++
+          root = counter
+          out.push(root)
+          continue
+        }
       }
     }
   }
   return out
-}
-function mineSolver(value, startIndex) {
-
 }
 console.log(mineSweeper([
   [0, 1, 0, 0],
