@@ -281,3 +281,21 @@ function capitalize(arr) {
   return out
 }
 console.log(capitalize(["samuel", "MABELLE", "letitia", "meridith"]))
+console.clear()
+
+// Create a function that takes an array representation of a Minesweeper board, and returns another board where the value of each cell is the amount of its neighbouring mines.
+
+function mineSweeper(arr) {
+  let out = []
+  for (let i = 0; i < arr.length; i++) {
+    let value = arr[i]
+    console.log(value)
+  }
+
+}
+console.log(mineSweeper([
+  [0, 1, 0, 0],
+  [0, 0, 1, 0],
+  [0, 1, 0, 1],
+  [1, 1, 0, 0],
+]))
