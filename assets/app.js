@@ -285,22 +285,62 @@ console.clear()
 
 // Create a function that takes an array representation of a Minesweeper board, and returns another board where the value of each cell is the amount of its neighbouring mines.
 
+let mineField = [
+  [0, 1, 0, 0],
+  [0, 0, 1, 0],
+  [0, 1, 0, 1],
+  [1, 1, 0, 0],
+]
+
 function mineSweeper(arr) {
+  debugger
   let out = []
+  let startIndex = {
+    row: 0,
+    col: 0
+  }
   let counter = 0
   for (let i = 0; i < arr.length; i++) {
     let row = arr[i]
-
+    startIndex.row = i
     if (row.length > 0) {
       for (let j = 0; j < row.length; j++) {
-        let column = row[j]
+        let value = row[j]
+        startIndex.col = j
+        if (value == 1) {
+          value = 9
+          break;
+        }
+        let horizontal = rowChecker(row, startIndex)
+        counter = horizontal
       }
     }
   }
   return out
 }
-function rowChecker(arr) {
-
+function rowChecker(arr, position) {
+  debugger
+  let key = {
+    row: position.row,
+    col: position.col
+  }
+  let counter = 0
+  for (let i = 0; i < arr.length; i++) {
+    let value = arr[i]
+    switch (value) {
+      case 'a':
+        if (key.col < arr.length && mineField[key.row][key.col + 1] == 1) {
+          counter++
+        }
+        break;
+      case 'b':
+        if (key.col > 0 && mineField[key.row][key.col - 1] == 1) {
+          counter++
+        }
+        break;
+    }
+  }
+  return counter
 }
 function columnChecker(value) {
 
@@ -308,56 +348,51 @@ function columnChecker(value) {
 function diagonalChecker(value) {
 
 }
-console.log(mineSweeper([
-  [0, 1, 0, 0],
-  [0, 0, 1, 0],
-  [0, 1, 0, 1],
-  [1, 1, 0, 0],
-]))
+console.log(mineSweeper(mineField))
 
-console.log(arr[i + 1][j])
-if (arr[i][j] != 1) {
-  switch (column) {
-    case 'a':
-      if (i > 0 && arr[i - 1][j] != 0) {
-        counter++
-      }
-    // continue;
-    case 'b':
-      if (i < arr.length && arr[i + 1][j] != 0) {
-        counter++
-      }
-    // continue;
-    case 'c':
-      if (j > 0 && arr[i][j - 1] != 0) {
-        counter++
-      }
-    // continue;
-    case 'd':
-      if (j < row.length && arr[i][j + 1] != 0) {
-        counter++
-      }
-    // continue;
-    case 'e':
-      if (i == 0 && j == 0) {
-        if (arr[i + 1][j] != 0) {
-          counter++
-        }
-        if (arr[i][j + 1] != 0) {
-          counter++
-        }
-        if (arr[i + 1][j + 1] != 0) {
-          counter++
-        }
-        // continue;
-      }
-    // continue;
-  }
-  column = counter
-  out.push(column)
-}
-if (column == 1) {
-  column = 9
-  out.push(column)
-  continue
-}
+// console.log(arr[i + 1][j])
+// if (arr[i][j] != 1) {
+//   switch (column) {
+//     case 'a':
+//       if (i > 0 && arr[i - 1][j] != 0) {
+//         counter++
+//       }
+//     // continue;
+//     case 'b':
+//       if (i < arr.length && arr[i + 1][j] != 0) {
+//         counter++
+//       }
+//     // continue;
+//     case 'c':
+//       if (j > 0 && arr[i][j - 1] != 0) {
+//         counter++
+//       }
+//     // continue;
+//     case 'd':
+//       if (j < row.length && arr[i][j + 1] != 0) {
+//         counter++
+//       }
+//     // continue;
+//     case 'e':
+//       if (i == 0 && j == 0) {
+//         if (arr[i + 1][j] != 0) {
+//           counter++
+//         }
+//         if (arr[i][j + 1] != 0) {
+//           counter++
+//         }
+//         if (arr[i + 1][j + 1] != 0) {
+//           counter++
+//         }
+//         // continue;
+//       }
+//     // continue;
+//   }
+//   column = counter
+//   out.push(column)
+// }
+// if (column == 1) {
+//   column = 9
+//   out.push(column)
+//   continue
+// }
