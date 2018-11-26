@@ -309,7 +309,7 @@ function mineSweeper(arr) {
         startIndex.col = j
         if (value == 1) {
           value = 9
-          break;
+          continue;
         }
         let horizontal = rowChecker(row, startIndex)
         counter = horizontal
