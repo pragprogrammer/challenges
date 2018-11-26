@@ -296,17 +296,21 @@ function mineSweeper(arr) {
         let root = value[j]
         let counter = 0
         // console.log('root', root)
-        console.log('index', j)
+        // console.log('index', j)
         debugger
+        console.log(arr[i + 1][j])
+        if (arr[i][j] != 1) {
+          switch (root) {
+            case 'true':
+              if ()
+          }
+          // counter++
+          // root = counter
+          // out.push(root)
+          // continue
+        }
         if (root == 1) {
           root = 9
-          out.push(root)
-          continue
-        }
-        console.log(arr[i + 1][j])
-        if (arr[i + 1][j] == 9) {
-          counter++
-          root = counter
           out.push(root)
           continue
         }
