@@ -287,16 +287,12 @@ console.clear()
 
 function mineSweeper(arr) {
   let out = []
-  // console.log(arr[1][3])
   for (let i = 0; i < arr.length; i++) {
     let value = arr[i]
-    // console.log(value)
     if (value.length > 0) {
       for (let j = 0; j < value.length; j++) {
         let root = value[j]
         let counter = 0
-        // console.log('root', root)
-        // console.log('index', j)
         debugger
         console.log(arr[i + 1][j])
         if (arr[i][j] != 1) {
