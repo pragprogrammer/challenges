@@ -287,33 +287,26 @@ console.clear()
 
 function mineSweeper(arr) {
   let out = []
+  let counter = 0
   for (let i = 0; i < arr.length; i++) {
-    let value = arr[i]
-    if (value.length > 0) {
-      for (let j = 0; j < value.length; j++) {
-        let root = value[j]
-        let counter = 0
-        debugger
-        console.log(arr[i + 1][j])
-        if (arr[i][j] != 1) {
-          switch (root) {
-            case 'true':
-              if ()
-          }
-          // counter++
-          // root = counter
-          // out.push(root)
-          // continue
-        }
-        if (root == 1) {
-          root = 9
-          out.push(root)
-          continue
-        }
+    let row = arr[i]
+
+    if (row.length > 0) {
+      for (let j = 0; j < row.length; j++) {
+        let column = row[j]
       }
     }
   }
   return out
+}
+function rowChecker(arr) {
+
+}
+function columnChecker(value) {
+
+}
+function diagonalChecker(value) {
+
 }
 console.log(mineSweeper([
   [0, 1, 0, 0],
@@ -321,3 +314,50 @@ console.log(mineSweeper([
   [0, 1, 0, 1],
   [1, 1, 0, 0],
 ]))
+
+console.log(arr[i + 1][j])
+if (arr[i][j] != 1) {
+  switch (column) {
+    case 'a':
+      if (i > 0 && arr[i - 1][j] != 0) {
+        counter++
+      }
+    // continue;
+    case 'b':
+      if (i < arr.length && arr[i + 1][j] != 0) {
+        counter++
+      }
+    // continue;
+    case 'c':
+      if (j > 0 && arr[i][j - 1] != 0) {
+        counter++
+      }
+    // continue;
+    case 'd':
+      if (j < row.length && arr[i][j + 1] != 0) {
+        counter++
+      }
+    // continue;
+    case 'e':
+      if (i == 0 && j == 0) {
+        if (arr[i + 1][j] != 0) {
+          counter++
+        }
+        if (arr[i][j + 1] != 0) {
+          counter++
+        }
+        if (arr[i + 1][j + 1] != 0) {
+          counter++
+        }
+        // continue;
+      }
+    // continue;
+  }
+  column = counter
+  out.push(column)
+}
+if (column == 1) {
+  column = 9
+  out.push(column)
+  continue
+}
