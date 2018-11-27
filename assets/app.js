@@ -317,7 +317,9 @@ function revalueMines(arr) {
     })
     out.push(newRow)
   }
-  mineSweeper(out)
+  let board = mineSweeper(out)
+  out = board
+  return out
 }
 
 function mineSweeper(arr) {
@@ -351,7 +353,6 @@ function mineSweeper(arr) {
       }
     }
   }
-  console.log(out)
   return out
 }
 
