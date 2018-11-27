@@ -299,7 +299,7 @@ console.clear()
 
 
 let mineField = [
-  [0, 1, 0, 0],
+  [0, 1, 0, 1],
   [0, 0, 1, 0],
   [0, 1, 0, 1],
   [1, 1, 0, 0],
@@ -321,6 +321,7 @@ function revalueMines(arr) {
 }
 
 function mineSweeper(arr) {
+  let newMinefield = arr
   let out = []
   let startIndex = {
     row: 0,
@@ -335,8 +336,10 @@ function mineSweeper(arr) {
         let value = row[j]
         startIndex.col = j
         if (value != 9) {
-          let horizontal = rowChecker(row, startIndex)
+          let horizontal = rowChecker(newMinefield, startIndex)
           counter += horizontal
+          let verticle = columnChecker(newMinefield, startIndex)
+          counter += verticle
         }
       }
     }
@@ -350,24 +353,28 @@ function rowChecker(arr, position) {
     col: position.col
   }
   let counter = 0
-  for (let i = 0; i < arr.length; i++) {
-    let value = arr[i]
-    // console.log('column', arr[key.col + 1])
-    if (key.col < arr.length && arr[key.col + 1] == 9) {
-      counter++
-      continue;
-    }
-    if (key.col > 0 && arr[key.col - 1] == 9) {
-      counter++
-      continue;
-    }
-    return counter
+  if (key.col < arr.length && arr[key.row][key.col + 1] == 9) {
+    counter++
   }
-  // console.log('counter', counter)
+  if (key.col > 0 && arr[key.row][key.col - 1] == 9) {
+    counter++
+  }
   return counter
 }
-function columnChecker(value) {
 
+function columnChecker(arr, position) {
+  let key = {
+    row: position.row,
+    col: position.col
+  }
+  let counter = 0
+  if (key.row < arr.length && arr[key.row + 1][key.col] == 9) {
+    counter++
+  }
+  if (key.row > 0 && arr[key.row - 1][key.col] == 9) {
+    counter++
+  }
+  return counter
 }
 function diagonalChecker(value) {
 
