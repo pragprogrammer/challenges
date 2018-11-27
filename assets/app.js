@@ -285,6 +285,19 @@ console.clear()
 
 // Create a function that takes an array representation of a Minesweeper board, and returns another board where the value of each cell is the amount of its neighbouring mines.
 
+
+// if (row.length > 0) {
+//   for (let j = 0; j < row.length; j++) {
+//     let value = row[j]
+//     if (value == 1) {
+//       value = 9
+//       out.map(value);
+//     }
+//     out.push(value)
+//   }
+// }
+
+
 let mineField = [
   [0, 1, 0, 0],
   [0, 0, 1, 0],
@@ -292,6 +305,19 @@ let mineField = [
   [1, 1, 0, 0],
 ]
 
+function revalueMines(arr) {
+  let out = []
+  debugger
+  for (let i = 0; i < arr.length; i++) {
+    let row = arr[i]
+    out = row.map(x => {
+      if (x[i] == 1) {
+        x[i] = 9
+      }
+    })
+  }
+  return out
+}
 function mineSweeper(arr) {
   // debugger
   let out = []
@@ -322,7 +348,7 @@ function mineSweeper(arr) {
   return out
 }
 function rowChecker(arr, position) {
-  debugger
+  // debugger
   let key = {
     row: position.row,
     col: position.col
@@ -330,21 +356,21 @@ function rowChecker(arr, position) {
   let counter = 0
   for (let i = 0; i < arr.length; i++) {
     let value = arr[i]
-    console.log('value', value)
+    // console.log('value', value)
     switch (value) {
       case 'a':
-        if (key.col < arr.length && mineField[key.row][key.col + 1] == 1 || mineField[key.row][key.col + 1] == 9) {
+        if (key.col < arr.length && mineField[key.row][key.col + 1] == 9) {
           counter++
           continue;
         }
       case 'b':
-        if (key.col > 0 && mineField[key.row][key.col - 1] == 1 || mineField[key.row][key.col - 1] == 9) {
+        if (key.col > 0 && mineField[key.row][key.col - 1] == 9) {
           counter++
           continue;
         }
     }
   }
-  console.log('counter', counter)
+  // console.log('counter', counter)
   return counter
 }
 function columnChecker(value) {
@@ -353,5 +379,5 @@ function columnChecker(value) {
 function diagonalChecker(value) {
 
 }
-console.log(mineSweeper(mineField))
+console.log(revalueMines(mineField))
 
