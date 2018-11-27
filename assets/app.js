@@ -293,7 +293,7 @@ let mineField = [
 ]
 
 function mineSweeper(arr) {
-  debugger
+  // debugger
   let out = []
   let startIndex = {
     row: 0,
@@ -309,10 +309,13 @@ function mineSweeper(arr) {
         startIndex.col = j
         if (value == 1) {
           value = 9
-          continue;
+          out.push(value)
+          break;
         }
-        let horizontal = rowChecker(row, startIndex)
-        counter = horizontal
+        if (value != 9) {
+          let horizontal = rowChecker(row, startIndex)
+          counter += horizontal
+        }
       }
     }
   }
@@ -327,20 +330,21 @@ function rowChecker(arr, position) {
   let counter = 0
   for (let i = 0; i < arr.length; i++) {
     let value = arr[i]
-    console.log(value)
+    console.log('value', value)
     switch (value) {
       case 'a':
-        if (key.col < arr.length && mineField[key.row][key.col + 1] == 1) {
+        if (key.col < arr.length && mineField[key.row][key.col + 1] == 1 || mineField[key.row][key.col + 1] == 9) {
           counter++
+          continue;
         }
-        break;
       case 'b':
-        if (key.col > 0 && mineField[key.row][key.col - 1] == 1) {
+        if (key.col > 0 && mineField[key.row][key.col - 1] == 1 || mineField[key.row][key.col - 1] == 9) {
           counter++
+          continue;
         }
-        break;
     }
   }
+  console.log('counter', counter)
   return counter
 }
 function columnChecker(value) {
