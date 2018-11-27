@@ -307,19 +307,21 @@ let mineField = [
 
 function revalueMines(arr) {
   let out = []
-  debugger
   for (let i = 0; i < arr.length; i++) {
     let row = arr[i]
-    out = row.map(x => {
-      if (x[i] == 1) {
-        x[i] = 9
+    let newRow = row.map(x => {
+      if (x == 1) {
+        x = 9
       }
+      return x
     })
+    out.push(newRow)
   }
-  return out
+  mineSweeper(out)
 }
+
 function mineSweeper(arr) {
-  // debugger
+  debugger
   let out = []
   let startIndex = {
     row: 0,
@@ -333,11 +335,6 @@ function mineSweeper(arr) {
       for (let j = 0; j < row.length; j++) {
         let value = row[j]
         startIndex.col = j
-        if (value == 1) {
-          value = 9
-          out.push(value)
-          break;
-        }
         if (value != 9) {
           let horizontal = rowChecker(row, startIndex)
           counter += horizontal
