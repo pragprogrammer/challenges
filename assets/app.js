@@ -321,7 +321,6 @@ function revalueMines(arr) {
 }
 
 function mineSweeper(arr) {
-  debugger
   let out = []
   let startIndex = {
     row: 0,
@@ -345,7 +344,7 @@ function mineSweeper(arr) {
   return out
 }
 function rowChecker(arr, position) {
-  // debugger
+  debugger
   let key = {
     row: position.row,
     col: position.col
@@ -353,19 +352,16 @@ function rowChecker(arr, position) {
   let counter = 0
   for (let i = 0; i < arr.length; i++) {
     let value = arr[i]
-    // console.log('value', value)
-    switch (value) {
-      case 'a':
-        if (key.col < arr.length && mineField[key.row][key.col + 1] == 9) {
-          counter++
-          continue;
-        }
-      case 'b':
-        if (key.col > 0 && mineField[key.row][key.col - 1] == 9) {
-          counter++
-          continue;
-        }
+    // console.log('column', arr[key.col + 1])
+    if (key.col < arr.length && arr[key.col + 1] == 9) {
+      counter++
+      continue;
     }
+    if (key.col > 0 && arr[key.col - 1] == 9) {
+      counter++
+      continue;
+    }
+    return counter
   }
   // console.log('counter', counter)
   return counter
