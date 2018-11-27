@@ -340,6 +340,7 @@ function mineSweeper(arr) {
           counter += horizontal
           let verticle = columnChecker(newMinefield, startIndex)
           counter += verticle
+          let diagonal = diagonalChecker(newMinefield, startIndex)
         }
       }
     }
@@ -376,8 +377,26 @@ function columnChecker(arr, position) {
   }
   return counter
 }
-function diagonalChecker(value) {
 
+function diagonalChecker(arr, position) {
+  let key = {
+    row: position.row,
+    col: position.col
+  }
+  let counter = 0
+  if (key.row < arr.length && arr[key.row - 1][key.col - 1] == 9) {
+    counter++
+  }
+  if (key.row > 0 && arr[key.row - 1][key.col + 1] == 9) {
+    counter++
+  }
+  if (key.row > 0 && arr[key.row + 1][key.col - 1] == 9) {
+    counter++
+  }
+  if (key.row > 0 && arr[key.row + 1][key.col + 1] == 9) {
+    counter++
+  }
+  return counter
 }
 console.log(revalueMines(mineField))
 
