@@ -327,6 +327,7 @@ function rowChecker(arr, position) {
   let counter = 0
   for (let i = 0; i < arr.length; i++) {
     let value = arr[i]
+    console.log(value)
     switch (value) {
       case 'a':
         if (key.col < arr.length && mineField[key.row][key.col + 1] == 1) {
