@@ -299,7 +299,7 @@ console.clear()
 
 
 let mineField = [
-  [0, 1, 0, 1],
+  [0, 1, 0, 0],
   [0, 0, 1, 0],
   [0, 1, 0, 1],
   [1, 1, 0, 0],
@@ -322,7 +322,7 @@ function revalueMines(arr) {
 
 function mineSweeper(arr) {
   let newMinefield = arr
-  let out = []
+  let out = newMinefield
   let startIndex = {
     row: 0,
     col: 0
@@ -341,20 +341,27 @@ function mineSweeper(arr) {
           let verticle = columnChecker(newMinefield, startIndex)
           counter += verticle
           let diagonal = diagonalChecker(newMinefield, startIndex)
+          counter += diagonal
         }
+        if (value == 9) {
+          counter = value
+        }
+        out[i][j] = counter
+        counter = 0
       }
     }
   }
+  console.log(out)
   return out
 }
+
 function rowChecker(arr, position) {
-  debugger
   let key = {
     row: position.row,
     col: position.col
   }
   let counter = 0
-  if (key.col < arr.length && arr[key.row][key.col + 1] == 9) {
+  if (key.col < arr[key.row].length && arr[key.row][key.col + 1] == 9) {
     counter++
   }
   if (key.col > 0 && arr[key.row][key.col - 1] == 9) {
@@ -369,11 +376,18 @@ function columnChecker(arr, position) {
     col: position.col
   }
   let counter = 0
-  if (key.row < arr.length && arr[key.row + 1][key.col] == 9) {
-    counter++
+  if (key.row == arr.length - 1) {
+    if (key.row > 0 && arr[key.row - 1][key.col] == 9) {
+      counter++
+    }
   }
-  if (key.row > 0 && arr[key.row - 1][key.col] == 9) {
-    counter++
+  if (key.row != arr.length - 1) {
+    if (key.row < arr.length && arr[key.row + 1][key.col] == 9) {
+      counter++
+    }
+    if (key.row > 0 && arr[key.row - 1][key.col] == 9) {
+      counter++
+    }
   }
   return counter
 }
@@ -384,16 +398,22 @@ function diagonalChecker(arr, position) {
     col: position.col
   }
   let counter = 0
-  if (key.row < arr.length && arr[key.row - 1][key.col - 1] == 9) {
-    counter++
+  if (key.row != arr.length - 1) {
+    if (key.row < arr.length && key.col > 0 && arr[key.row + 1][key.col - 1] == 9) {
+      counter++
+    }
   }
-  if (key.row > 0 && arr[key.row - 1][key.col + 1] == 9) {
-    counter++
+  if (key.col != arr[key.row].length - 1) {
+    if (key.row > 0 && key.col < arr[key.row].length && arr[key.row - 1][key.col + 1] == 9) {
+      counter++
+    }
   }
-  if (key.row > 0 && arr[key.row + 1][key.col - 1] == 9) {
-    counter++
+  if (key.row != arr.length - 1 && key.col != arr[key.row].length - 1) {
+    if (key.row < arr.length && key.col < arr[key.row].length && arr[key.row + 1][key.col + 1] == 9) {
+      counter++
+    }
   }
-  if (key.row > 0 && arr[key.row + 1][key.col + 1] == 9) {
+  if (key.row > 0 && key.col > 0 && arr[key.row - 1][key.col - 1] == 9) {
     counter++
   }
   return counter
