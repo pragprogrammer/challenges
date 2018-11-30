@@ -422,4 +422,4 @@ function diagonalChecker(arr, position) {
 console.log(revalueMines(mineField))
 console.clear()
 
-
+// Create a function that takes an array, finds the most repeated element(s) within it and returns it/them in an array (order not important). The function should work for both integers and strings mixed together within the input array (e.g. [1, 1, "a"]).
