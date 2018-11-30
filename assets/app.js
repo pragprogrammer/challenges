@@ -420,4 +420,6 @@ function diagonalChecker(arr, position) {
   return counter
 }
 console.log(revalueMines(mineField))
+console.clear()
+
 
