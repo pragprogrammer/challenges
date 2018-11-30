@@ -429,17 +429,21 @@ function highestOccurrence(arr) {
   let counter = 0
   for (let i = 0; i < arr.length; i++) {
     let elem = arr[i]
+    let tempCount = 0
     for (let j = 0; j < arr.length; j++) {
-      let counted = arr[j]
-      let current = 0
-      if (counted == elem) {
-        current++
-        if (current > counter)
-          counter = current
-        out.push(counted)
+      let tempValue = arr[j]
+      if (tempValue == elem) {
+        tempCount++
+      }
+      if (tempCount > counter) {
+        counter = tempCount
+        out[0] = elem
+      }
+      if (j == arr.length - 1 && tempCount == counter) {
+        out.push(elem)
       }
     }
   }
   return out
 }
-console.log(highestOccurrence([2, 3, 2, 5, 6, 7, 2]))
+console.log(highestOccurrence([2, 3, 2, 5, 3, 6, 7]))
