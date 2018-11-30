@@ -439,9 +439,6 @@ function highestOccurrence(arr) {
         counter = tempCount
         out[0] = elem
       }
-      if (j == arr.length - 1 && tempCount == counter) {
-        out.push(elem)
-      }
     }
   }
   return out
