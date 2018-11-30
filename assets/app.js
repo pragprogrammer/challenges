@@ -423,3 +423,23 @@ console.log(revalueMines(mineField))
 console.clear()
 
 // Create a function that takes an array, finds the most repeated element(s) within it and returns it/them in an array (order not important). The function should work for both integers and strings mixed together within the input array (e.g. [1, 1, "a"]).
+
+function highestOccurrence(arr) {
+  let out = []
+  let counter = 0
+  for (let i = 0; i < arr.length; i++) {
+    let elem = arr[i]
+    for (let j = 0; j < arr.length; j++) {
+      let counted = arr[j]
+      let current = 0
+      if (counted == elem) {
+        current++
+        if (current > counter)
+          counter = current
+        out.push(counted)
+      }
+    }
+  }
+  return out
+}
+console.log(highestOccurrence([2, 3, 2, 5, 6, 7, 2]))
