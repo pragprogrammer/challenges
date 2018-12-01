@@ -444,3 +444,4 @@ function highestOccurrence(arr) {
   return out
 }
 console.log(highestOccurrence([2, 3, 2, 5, 3, 6, 7]))
+console.clear()
