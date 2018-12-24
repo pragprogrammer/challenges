@@ -3,13 +3,13 @@
 console.log("Hello")
 
 function reverse(str) {
-  let out = ""
-  for (let i = str.length - 1; i >= 0; i--) {
-    let letter = str[i]
-    out += letter
-    console.log(letter)
-  }
-  return out
+//   let out = ""
+//   for (let i = str.length - 1; i >= 0; i--) {
+//     let letter = str[i]
+//     out += letter
+//     console.log(letter)
+//   }
+  return str.split('').reverse().join('')
 }
 console.log(reverse("Hello World"))
 console.clear()
@@ -17,13 +17,14 @@ console.clear()
 // Create a function that takes an array and a string as arguments and return the index of the string.
 
 function findIndex(arr, str) {
-  for (let i = 0; i < arr.length; i++) {
-    let string = arr[i]
-    console.log(string)
-    if (str == string) {
-      return i
-    }
-  }
+  return arr.indexOf(str)
+//   for (let i = 0; i < arr.length; i++) {
+//     let string = arr[i]
+//     console.log(string)
+//     if (str == string) {
+//       return i
+//     }
+//   }
 }
 console.log(findIndex(['a', 'b', 'c', 'd', 'e', 'f'], 'f'))
 console.clear()
@@ -56,15 +57,15 @@ function monthName(num) {
     'November',
     'December']
 
-  for (let i = 0; i < months.length; i++) {
-    // let month = months[i]
-    if (num > 0 && num < 13) {
+//   for (let i = 0; i < months.length; i++) {
+//     // let month = months[i]
+//     if (num > 0 && num < 13) {
       return months[num - 1]
-    } else return 'Sorry not an Option'
+//     } else return 'Sorry not an Option'
     // if (num == i || num == i + 1) {
     //   return month
     // }
-  }
+//   }
 }
 console.log(monthName(1))
 console.clear()
@@ -84,18 +85,22 @@ console.clear()
 // Create a function that reverses a boolean value and returns the string "boolean expected" if another variable type is given.
 
 function boolFlipper(bool) {
-  let reverse = true
-  if (bool !== true && bool !== false) {
+  if (typeof(bool) !== "boolean") {
     return "boolean expected"
   }
-  if (bool == true) {
-    reverse = false
-    return reverse
-  }
-  if (bool == false) {
-    reverse = true
-    return reverse
-  }
+  return !bool
+//   let reverse = true
+//   if (bool !== true && bool !== false) {
+//     return "boolean expected"
+//   }
+//   if (bool == true) {
+//     reverse = false
+//     return reverse
+//   }
+//   if (bool == false) {
+//     reverse = true
+//     return reverse
+//   }
 }
 console.log(boolFlipper(false))
 console.clear()
@@ -103,19 +108,20 @@ console.clear()
 // Create a function that takes an array of numbers and return both the minimum and maximum numbers, in that order.
 
 function minMax(arr) {
-  let min = arr[0]
-  let max = arr[1]
-  for (let i = 0; i < arr.length; i++) {
-    let number = arr[i]
-    if (min < number) {
-      if (max < number) {
-        max = number
-      }
-    } if (min > number) {
-      min = number
-    }
-  }
-  return [min, max]
+  arr = arr.sort()
+//   let min = arr[0]
+//   let max = arr[1]
+//   for (let i = 0; i < arr.length; i++) {
+//     let number = arr[i]
+//     if (min < number) {
+//       if (max < number) {
+//         max = number
+//       }
+//     } if (min > number) {
+//       min = number
+//     }
+//   }
+  return [arr[0], arr[-1]]
 }
 console.log(minMax([2, 3, 1, 5, 7, -1]))
 console.clear()
@@ -123,13 +129,14 @@ console.clear()
 // Create a function that takes an array of numbers. Return the largest number in the array.
 
 function largestNum(arr) {
-  let out = arr[0]
-  for (let i = 1; i < arr.length; i++) {
-    let value = arr[i]
-    if (value > out) {
-      out = value
-    }
-  }
+  arr = arr.sort()
+  let out = arr[arr.length-1]
+//   for (let i = 1; i < arr.length; i++) {
+//     let value = arr[i]
+//     if (value > out) {
+//       out = value
+//     }
+//   }
   return out;
 }
 console.log(largestNum([1, 100, 23, 10, 54, -12]))
@@ -174,24 +181,40 @@ console.clear()
 // Create a function that takes an array and return the most frequently occuring element contained within it.
 
 function mostFrequent(arr) {
-  let out = arr[0]
-  let count = 1
-  let tempValue = 0
+  let freqObj = {};
   for (let i = 0; i < arr.length; i++) {
-    tempValue = arr[i]
-    let tempCount = 0
-    for (let j = 0; j < arr.length; j++) {
-      let value = arr[j]
-      if (tempValue === value) {
-        tempCount++
-      }
-      if (tempCount > count) {
-        out = tempValue
-        count = tempCount
-      }
-    }
+    if (!freqObj[arr[i]]) {
+      freqObj[arr[i]] = 1
+    } else {
+      freqObj[arr[i]]++
+    }     
   }
-  return out
+  let highest = ["",0]
+  for (let key in freqObj) {
+    if (freqObj[key] > highest[1]) {
+      highest = [key, freqObj[key]]
+    } 
+  }
+  return highest[0]
+  
+//   let out = arr[0]
+//   let count = 1
+//   let tempValue = 0
+//   for (let i = 0; i < arr.length; i++) {
+//     tempValue = arr[i]
+//     let tempCount = 0
+//     for (let j = 0; j < arr.length; j++) {
+//       let value = arr[j]
+//       if (tempValue === value) {
+//         tempCount++
+//       }
+//       if (tempCount > count) {
+//         out = tempValue
+//         count = tempCount
+//       }
+//     }
+//   }
+//  return out
 }
 console.log(mostFrequent([1, 2, -3, true, false, 1, undefined, "yes", "yeah", "yup", 2]))
 console.clear()
@@ -199,28 +222,29 @@ console.clear()
 // Create a function that takes two strings and returns true if the first argument ends with the second argument; otherewise return false .
 
 function endsWith(str1, str2) {
-  let out = false
-  let strLenght = str2.length - 1
-  // debugger
-  for (let i = str1.length - 1; i > 0; i--) {
-    let letter = str1[i]
-    for (let j = strLenght; j >= 0; j--) {
-      let current = str2[j]
-      if (letter == current) {
-        out = true
-        strLenght--
-        break;
-      }
-      if (letter != current) {
-        out = false
-        return out
-      }
-      if (strLenght == 0) {
-        return out
-      }
-    }
-  }
-  return out;
+  return ((str1.indexOf(str2) + str2.length) === str1.length)
+//   let out = false
+//   let strLenght = str2.length - 1
+//   // debugger
+//   for (let i = str1.length - 1; i > 0; i--) {
+//     let letter = str1[i]
+//     for (let j = strLenght; j >= 0; j--) {
+//       let current = str2[j]
+//       if (letter == current) {
+//         out = true
+//         strLenght--
+//         break;
+//       }
+//       if (letter != current) {
+//         out = false
+//         return out
+//       }
+//       if (strLenght == 0) {
+//         return out
+//       }
+//     }
+//   }
+//   return out;
 }
 console.log(endsWith("convention", "tio"))
 console.clear()
@@ -230,8 +254,8 @@ console.clear()
 function countInstance(str1, str2) {
   let out = 0
   for (let i = 0; i < str2.length; i++) {
-    let char = str2[i]
-    if (str1 === char) {
+    //let char = str2[i]
+    if (str1 === str2[i]) {
       out++
     }
   }
@@ -243,14 +267,15 @@ console.clear()
 // Create a function that takes an array of numbers and returns the smallest number in the set.
 
 function smallestNum(arr) {
-  let out = arr[0]
-  for (let i = 1; i < arr.length; i++) {
-    let value = arr[i]
-    if (value < out) {
-      out = value
-    }
-  }
-  return out;
+  arr = arr.sort()
+//   let out = arr[0]
+//   for (let i = 1; i < arr.length; i++) {
+//     let value = arr[i]
+//     if (value < out) {
+//       out = value
+//     }
+//   }
+  return arr[0];
 }
 console.log(smallestNum([0.4356, 0.8795, 0.5435, -0.9999]))
 console.clear()
@@ -425,23 +450,44 @@ console.clear()
 // Create a function that takes an array, finds the most repeated element(s) within it and returns it/them in an array (order not important). The function should work for both integers and strings mixed together within the input array (e.g. [1, 1, "a"]).
 
 function highestOccurrence(arr) {
-  let out = []
-  let counter = 0
+  let freqObj = {};
   for (let i = 0; i < arr.length; i++) {
-    let elem = arr[i]
-    let tempCount = 0
-    for (let j = 0; j < arr.length; j++) {
-      let tempValue = arr[j]
-      if (tempValue == elem) {
-        tempCount++
-      }
-      if (tempCount > counter) {
-        counter = tempCount
-        out[0] = elem
-      }
+    if (!freqObj[arr[i]]) {
+      freqObj[arr[i]] = 1
+    } else {
+      freqObj[arr[i]]++
+    }     
+  }
+  let highest = []
+  let highestCount = 0
+  console.log(freqObj)
+  for (let key in freqObj) {
+    if (freqObj[key] > highestCount) {
+      highest = [key]
+      highestCount = freqObj[key]
+      continue
+    }
+    if (freqObj[key] === highestCount) {
+      highest.push(key)
     }
   }
-  return out
+  return highest
+//   let out = []
+//   let counter = 0
+//   for (let i = 0; i < arr.length; i++) {
+//     let elem = arr[i]
+//     let tempCount = 0
+//     for (let j = 0; j < arr.length; j++) {
+//       let tempValue = arr[j]
+//       if (tempValue == elem) {
+//         tempCount++
+//       }
+//       if (tempCount > counter) {
+//         counter = tempCount
+//         out[0] = elem
+//       }
+//     }
+//   }
 }
 console.log(highestOccurrence([2, 3, 2, 5, 3, 6, 7]))
 console.clear()
