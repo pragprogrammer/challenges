@@ -448,12 +448,34 @@
 
 let inputs = [4245, 984144, 65483, 4, 4981686384, 447444, 4444]
 
-function twoChecks(input) {
+
+// rl.on('line', function twoChecks(line) {
+//   let x = 1
+//   let a = 0
+//   let b = 0
+//   for (let i = 0; i <= line.length; i++) {
+//     let origInput = line[i]
+//     let numToChar = origInput.toString()
+//     numToChar = numToChar.replace(/4/g, '3')
+//     numToChar = parseInt(numToChar)
+//     a = numToChar
+//     b = origInput - numToChar
+//     console.log(`Case:${x}: ${a} ${b}`)
+//     x++
+//   }
+//   return
+// })
+// twoChecks(inputs)
+
+var readline = require('readline');
+var rl = readline.createInterface(process.stdin, process.stdout);
+
+rl.on('line', (line) => {
   let x = 1
   let a = 0
   let b = 0
-  for (let i = 0; i <= input.length; i++) {
-    let origInput = input[i]
+  for (let i = 0; i <= line.length; i++) {
+    let origInput = line[i]
     let numToChar = origInput.toString()
     numToChar = numToChar.replace(/4/g, '3')
     numToChar = parseInt(numToChar)
@@ -463,5 +485,6 @@ function twoChecks(input) {
     x++
   }
   return
-}
-twoChecks(inputs)
+}).on('close', () => {
+  process.exit(0)
+})
